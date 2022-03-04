@@ -5,6 +5,7 @@
 .App-logo {
   height: 40vmin;
   pointer-events: none;
+  color: white;
 }
 
 .navbar-morty{
@@ -26,6 +27,10 @@
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
+
+  /* display: flex;
+    flex-direction: row;
+    align-items: center; */
 }
 
 .App-link {
@@ -39,4 +44,40 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+.content-product{
+  /* background-color: #61dafb; */
+  color: black;
+  width: 80%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  /* padding-left: 10%;
+  padding-right: 10%; */
+  margin: auto;
+
+}
+
+
+.go-cart{
+  background-color: #e89ac7 !important;
+  border-color: #e89ac7 !important;
+  font-weight: bold !important;
+}
+
+.go-back{
+  background-color: #97ce4c !important;
+  border-color: #97ce4c !important;
+  font-weight: bold;
+  margin-bottom: 4%;
+}
+
+
+.cardSize{
+  min-height: 32rem;
+}
+
+.detailProduct{
+  background-color: #61dafb;
 }

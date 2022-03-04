@@ -35,7 +35,7 @@ function App() {
               src={logo}
               width="100"
               height="30"
-              className="d-inline-block align-top"
+              className="d-inline-block align-top ImageLogo"
             />{' '}
             Projet Test unitaire - MYRAN Nolwenn - PERALES Stacy
           </Navbar.Brand>

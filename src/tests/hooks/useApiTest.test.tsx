@@ -1,16 +1,29 @@
-import { renderHook, act } from "@testing-library/react-hooks";
-import useHome from "../../hooks/useHome/useHome";
-import { setupServer } from "msw/node";
+// __tests__/fetch.test.js
+
+import React from "react";
+
 import { rest } from "msw";
+
+import { setupServer } from "msw/node";
+
+import { render, waitFor, screen } from "@testing-library/react";
+
+import "@testing-library/jest-dom";
+
+import App from "../../App";
+
 
 
 const server = setupServer(
 
     rest.get(
+
         "http://localhost:8000/api/products",
+
         (req, res, ctx) => {
-            console.log("i'm here!!!");
+
             return res(
+
                 ctx.json(
                     [
                         {
@@ -41,8 +54,16 @@ const server = setupServer(
                             "rick_and_morty_id": 3
                         }
                     ]
-                ))
-        }));
+
+                )
+
+            );
+
+        }
+
+    )
+
+);
 
 beforeAll(() => server.listen());
 
@@ -50,16 +71,13 @@ afterEach(() => server.resetHandlers());
 
 afterAll(() => server.close());
 
-test("loading", async () => {
-    const { result } = renderHook(() => useHome());
-    const { loading, loadProducts } = result.current;
-    expect(loading).toEqual(true);
-    await act(async () => {
-        await loadProducts()
-    }
-    );
-    const { products } = result.current;
 
-    // Vérifier le nombre de produits
-    expect(products.length).toEqual(3);
+
+test("load product mock", async () => {
+
+    const { container } = render(<App />);
+
+    await waitFor(() => screen.getByText(/Morty/i));
+    expect(container.getElementsByTagName("img").length).toBe(5);
+
 });
