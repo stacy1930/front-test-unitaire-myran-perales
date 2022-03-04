@@ -62,24 +62,24 @@ test("loading", async () => {
     console.log(products);
 });
 
-// test("remove Cart", async () => {
-//     const { result } = renderHook(() => useCart());
-//     const { removeToCart } = result.current;
+test("remove Cart", async () => {
+    const { result } = renderHook(() => useCart());
+    const { removeToCart } = result.current;
 
-//     await act(async () => {
-//         await removeToCart(
-//             {
-//                 "id": 3,
-//                 "name": "Summer Smith",
-//                 "price": 67.6,
-//                 "image": "https://rickandmortyapi.com/api/character/avatar/3.jpeg",
-//                 "quantity": 20
-//             }
-//         );
-//     },
-//     );
-//     const { message } = result.current;
-//     expect(message).toBe("Produit bien supprimé");
+    await act(async () => {
+        await removeToCart(
+            {
+                "id": 3,
+                "name": "Summer Smith",
+                "price": 67.6,
+                "image": "https://rickandmortyapi.com/api/character/avatar/3.jpeg",
+                "quantity": 20
+            }
+        );
+    },
+    );
+    const { message } = result.current;
+    expect(message).toBe("Produit bien supprimé");
 
-// });
+});
 
