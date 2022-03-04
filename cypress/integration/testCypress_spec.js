@@ -20,4 +20,12 @@ describe("App Test", () => {
     //     cy.get(".addProduct").contains("2");
 
     // });
+
+    // it("ajout au panier", () => {
+    //     cy.visit("http://localhost:3000");
+    //     // cy.get("Ajouter au panier").click();
+    //     cy.get(".addProduct").first();
+    //     cy.find("button");
+    //     cy.click();
+    // });
 });

@@ -9,7 +9,6 @@ const server = setupServer(
     rest.get(
         "http://localhost:8000/api/cart",
         (req, res, ctx) => {
-            console.log("i'm here!!!");
             return res(
                 ctx.json(
                     [
@@ -42,7 +41,8 @@ const server = setupServer(
                         }
                     ]
                 ))
-        }));
+        })
+);
 
 beforeAll(() => server.listen());
 

@@ -25,7 +25,6 @@ const useProduct = (product: Product) => {
                         setMessage("Trop de quantité");
                     } else {
                         setMessage("Enregistré dans le panier");
-                        setQuantity(quantity);
                     }
                     setLoading(false);
                     resolve(true);

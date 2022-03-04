@@ -40,7 +40,6 @@ test("Cart test", () => {
 
 test("Product test", () => {
   const { container } = render(<Product setRoute={function (): void {
-    throw new Error('Function not implemented.');
   }} data={productExemple} />);
 
   expect(container.getElementsByClassName("detailProduct").length).toBe(1);
@@ -73,19 +72,5 @@ test("Home button aller au panier", () => {
 
   expect(button1.textContent).toBe('Aller sur panier');
 });
-
-// test("Ajout panier", () => {
-//   act(() => {
-//     ReactDOM.render(<Product setRoute={function (): void {
-//     }} />, container);
-//   });
-//   const button1 = container.querySelector(".go-cart[data-value='addCart']");
-
-//   act(() => {
-//     button1.dispatchEvent(new MouseEvent("click", { bubbles: true }));
-//   });
-
-//   expect(button1.textContent).toBe('Aller sur panier');
-// });
 
 
