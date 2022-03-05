@@ -1,5 +1,16 @@
 [![Node CI](https://github.com/stacy1930/front-test-unitaire-myran-perales/actions/workflows/nodeci.yml/badge.svg)](https://github.com/stacy1930/front-test-unitaire-myran-perales/actions/workflows/nodeci.yml)
 
+
+# A savoir sur le projet
+- Le CI-CD
+  - Le CI-cd à déjà fonctionné 2-3 fois (Voir Actions).
+  - Le CI-CD échoue à cause des tests useCart.test.tsx alors qu'en local les tests sont en success.
+  - L'erreur du CI-CD est la suivante : Network request failed
+- Des tests Cypress ont été réalisé (6 tests présents dans **"cypress>integration>testCypress_spec.js"**
+- Des tests fonctionnels ont été réalisé
+- Des mocks de l'api ont été réalisé
+- Des tests unitaire ont été réalise
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
