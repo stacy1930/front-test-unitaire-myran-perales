@@ -1,3 +1,5 @@
+
+
 describe("App Test", () => {
 
     // OK
@@ -8,24 +10,41 @@ describe("App Test", () => {
 
     });
 
-    it("Test click cards list ", () => {
+    it("Test title ", () => {
         cy.visit("http://localhost:3000");
         // cy.get(".cardSize").click();
-        cy.title('Nolwenn')
+        cy.title('Nolwenn');
     });
 
-    // it("Test addProduct ", () => {
-    //     cy.visit("http://localhost:3000");
-    //     cy.contains("Ajouter au panier").click();
-    //     cy.get(".addProduct").contains("2");
+    it('click sur la card de la figurine avec id 1', () => {
+        cy.visit('http://localhost:3000');
+        cy.get('[data-testid=1]').click();
+    });
 
-    // });
+    it("ajout au panier", () => {
+        cy.visit('http://localhost:3000');
+        cy.get('[data-testid=1]').click();
+        cy.get('[data-testid=input-add-to-cart]').type('3');
+        cy.get('[data-testid=button-add]').click();
+        cy.contains("Enregistré dans le panier");
+    });
 
-    // it("ajout au panier", () => {
-    //     cy.visit("http://localhost:3000");
-    //     // cy.get("Ajouter au panier").click();
-    //     cy.get(".addProduct").first();
-    //     cy.find("button");
-    //     cy.click();
-    // });
+    it("Ajouter un élement au panier puis aller dans le panier", () => {
+        cy.visit('http://localhost:3000');
+        cy.get('[data-testid=1]').click();
+        cy.get('[data-testid=input-add-to-cart]').type('3');
+        cy.get('[data-testid=button-add]').click();
+        cy.get('.go-back').click();
+        cy.get('.go-cart').click();
+        // cy.get('[data-testid=1]').click();
+    });
+
+    it("Mot figurine sur le détail produit ", () => {
+        cy.visit('http://localhost:3000');
+        cy.get('[data-testid=2]').click();
+        cy.contains('Figurine');
+    });
+
+
+
 });

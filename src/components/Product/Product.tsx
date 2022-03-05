@@ -28,9 +28,10 @@ const Product = ({ setRoute, data: product }: any) => {
                     <Card.Text>
                         Quantité du produit : {product.quantity}
                     </Card.Text>
-                    <InputGroup className="mb-3">
+                    {/* <InputGroup className="mb-3">
                         <InputGroup.Text id="basic-addon1">Quantité</InputGroup.Text>
                         <FormControl
+                            data-testid="input-add-to-cart"
                             placeholder="Quantité à ajouter"
                             aria-label="Username"
                             aria-describedby="basic-addon1"
@@ -38,8 +39,15 @@ const Product = ({ setRoute, data: product }: any) => {
                             value={quantity}
                             onChange={(e) => setQuantity(Number(e.target.value))}
                         />
-                    </InputGroup>
-                    <Button className="go-cart addProduct" data-value="addCart" onClick={addProduct} >Ajouter au panier</Button>
+                    </InputGroup> */}
+                    <input
+                        type="number"
+                        data-testid="input-add-to-cart"
+                        value={quantity}
+                        onChange={(e) => setQuantity(Number(e.target.value))}
+                        placeholder="Quantité à ajouter"
+                    />
+                    <Button data-testid="button-add" className="go-cart addProduct" data-value="addCart" onClick={addProduct} >Ajouter au panier</Button>
                 </Card.Body>
             </Card>
             {/* <input

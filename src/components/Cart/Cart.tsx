@@ -21,13 +21,13 @@ const Cart = ({ setRoute }: { setRoute: (data: any) => void }) => {
                 Retour</Button>            <div>
                 {products.map((product) => {
                     return (
-                        <React.Fragment>
+                        <React.Fragment key={product.id}>
                             <div>
                                 <img src={product.image} alt="" />
                                 <p>Figurine de {product.name}</p>
                                 <p>Quantitée {product.quantity}</p>
                             </div>
-                            <button onClick={() => removeToCart(product)}>
+                            <button data-testid={product.id} onClick={() => removeToCart(product)}>
                                 Supprimer du panier
                             </button>
                             <hr />

@@ -28,7 +28,7 @@ const Home = ({ setRoute }: { setRoute: (data: any) => void }) => {
                     return (
                         <React.Fragment key={product.id}>
                             <div className="mx-auto my-4">
-                                <Card onClick={() => setRoute({ route: "product", data: product })} className="cardSize shadow-lg bg-white rounded">
+                                <Card data-testid={product.id} onClick={() => setRoute({ route: "product", data: product })} className="cardSize shadow-lg bg-white rounded">
                                     <Card.Img variant="top" src={product.image} />
                                     <Card.Body>
                                         <Card.Title>Figurine de {product.name}</Card.Title>
