@@ -6,40 +6,21 @@ import useCart from "../../hooks/useCart/useCart";
 
 const server = setupServer(
 
-    rest.get(
+    rest.delete(
         "http://localhost:8000/api/cart",
         (req, res, ctx) => {
             return res(
                 ctx.json(
-                    [
-                        {
 
-                            "id": 1,
-                            "name": "Rick Sanchez",
-                            "price": 45.6,
-                            "image": "https://rickandmortyapi.com/api/character/avatar/1.jpeg",
-                            "quantity": 20,
-                            "rick_and_morty_id": 1
+                    {
+                        "id": 3,
+                        "name": "Summer Smith",
+                        "price": 67.6,
+                        "image": "https://rickandmortyapi.com/api/character/avatar/3.jpeg",
+                        "quantity": 20,
+                        "rick_and_morty_id": 3
+                    }
 
-
-                        },
-                        {
-                            "id": 2,
-                            "name": "Morty Smith",
-                            "price": 35.98,
-                            "image": "https://rickandmortyapi.com/api/character/avatar/2.jpeg",
-                            "quantity": 20,
-                            "rick_and_morty_id": 2
-                        },
-                        {
-                            "id": 3,
-                            "name": "Summer Smith",
-                            "price": 67.6,
-                            "image": "https://rickandmortyapi.com/api/character/avatar/3.jpeg",
-                            "quantity": 20,
-                            "rick_and_morty_id": 3
-                        }
-                    ]
                 ))
         })
 );
