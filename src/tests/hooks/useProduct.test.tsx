@@ -50,26 +50,26 @@ let container: any;
 
 
 
-test("Ajout panier", async () => {
-    const { container } =
-        render(<Product setRoute={function (): void {
-        }} data={{
-            "id": 1,
-            "name": "Rick Sanchez",
-            "price": 45.6,
-            "image": "https://rickandmortyapi.com/api/character/avatar/1.jpeg",
-            "quantity": 20,
-        }} />);
-    const button1: any = container.querySelector(".go-cart[data-value='addCart']");
+// test("Ajout panier", async () => {
+//     const { container } =
+//         render(<Product setRoute={function (): void {
+//         }} data={{
+//             "id": 1,
+//             "name": "Rick Sanchez",
+//             "price": 45.6,
+//             "image": "https://rickandmortyapi.com/api/character/avatar/1.jpeg",
+//             "quantity": 20,
+//         }} />);
+//     const button1: any = container.querySelector(".go-cart[data-value='addCart']");
 
-    actRender(() => {
-        button1.dispatchEvent(new MouseEvent("click", { bubbles: true }));
-    });
+//     actRender(() => {
+//         button1.dispatchEvent(new MouseEvent("click", { bubbles: true }));
+//     });
 
-    await new Promise((resolve) => setTimeout(resolve, 4000));
+//     await new Promise((resolve) => setTimeout(resolve, 4000));
 
-    const title = screen.getByText(/Enregistré dans le panier/i);
-    expect(title).toBeInTheDocument();
-});
+//     const title = screen.getByText(/Enregistré dans le panier/i);
+//     expect(title).toBeInTheDocument();
+// });
 
 
