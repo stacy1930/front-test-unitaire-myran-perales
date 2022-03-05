@@ -35,7 +35,12 @@ const useCart = () => {
             })
                 .then((res) => res.json())
                 .then((res) => {
-                    setMessage("Produit bien supprimé");
+                    if (res.error) {
+                        setMessage("Error");
+                    } else {
+                        setMessage("Produit bien supprimé");
+                    }
+                    setLoading(false);
                     loadCart().then(resolve);
                 });
         });
