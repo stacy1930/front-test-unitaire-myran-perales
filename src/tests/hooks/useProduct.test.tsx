@@ -7,8 +7,6 @@ import useProduct from "../../hooks/useProduct/useProduct";
 import { rest } from "msw";
 import { setupServer } from "msw/node";
 
-import goBack from './../../go-back.png';
-
 const server = setupServer(
 
     rest.post(
@@ -21,13 +19,19 @@ const server = setupServer(
                         "id": 1,
                         "name": "Add Product",
                         "price": 45.6,
-                        "image": goBack,
+                        "image": "https://rickandmortyapi.com/api/character/avatar/1.jpeg",
                         "quantity": 20,
                         "rick_and_morty_id": 1
                     }
                 ))
         })
 );
+
+beforeAll(() => server.listen());
+
+afterEach(() => server.resetHandlers());
+
+afterAll(() => server.close());
 
 let container: any;
 
@@ -36,7 +40,7 @@ test("addProduct", async () => {
         "id": 1,
         "name": "Rick Sanchez",
         "price": 45.6,
-        "image": goBack,
+        "image": "https://rickandmortyapi.com/api/character/avatar/1.jpeg",
         "quantity": 20,
     }));
     const { loading, addProduct } = result.current;
@@ -52,26 +56,26 @@ test("addProduct", async () => {
 
 
 
-// test("Ajout panier", async () => {
-//     const { container } =
-//         render(<Product setRoute={function (): void {
-//         }} data={{
-//             "id": 1,
-//             "name": "Rick Sanchez",
-//             "price": 45.6,
-//             "image": "https://rickandmortyapi.com/api/character/avatar/1.jpeg",
-//             "quantity": 20,
-//         }} />);
-//     const button1: any = container.querySelector(".go-cart[data-value='addCart']");
+test("Ajout panier", async () => {
+    const { container } =
+        render(<Product setRoute={function (): void {
+        }} data={{
+            "id": 1,
+            "name": "Rick Sanchez",
+            "price": 45.6,
+            "image": "https://rickandmortyapi.com/api/character/avatar/1.jpeg",
+            "quantity": 20,
+        }} />);
+    const button1: any = container.querySelector(".go-cart[data-value='addCart']");
 
-//     actRender(() => {
-//         button1.dispatchEvent(new MouseEvent("click", { bubbles: true }));
-//     });
+    actRender(() => {
+        button1.dispatchEvent(new MouseEvent("click", { bubbles: true }));
+    });
 
-//     await new Promise((resolve) => setTimeout(resolve, 4000));
+    await new Promise((resolve) => setTimeout(resolve, 4000));
 
-//     const title = screen.getByText(/Enregistré dans le panier/i);
-//     expect(title).toBeInTheDocument();
-// });
+    const title = screen.getByText(/Enregistré dans le panier/i);
+    expect(title).toBeInTheDocument();
+});
 
 
