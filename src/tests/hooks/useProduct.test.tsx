@@ -7,6 +7,8 @@ import useProduct from "../../hooks/useProduct/useProduct";
 import { rest } from "msw";
 import { setupServer } from "msw/node";
 
+import goBack from './../../go-back.png';
+
 const server = setupServer(
 
     rest.post(
@@ -19,7 +21,7 @@ const server = setupServer(
                         "id": 1,
                         "name": "Add Product",
                         "price": 45.6,
-                        "image": "https://rickandmortyapi.com/api/character/avatar/1.jpeg",
+                        "image": goBack,
                         "quantity": 20,
                         "rick_and_morty_id": 1
                     }
@@ -34,18 +36,18 @@ test("addProduct", async () => {
         "id": 1,
         "name": "Rick Sanchez",
         "price": 45.6,
-        "image": "https://rickandmortyapi.com/api/character/avatar/1.jpeg",
+        "image": goBack,
         "quantity": 20,
     }));
     const { loading, addProduct } = result.current;
     expect(loading).toEqual(false);
-    // await act(async () => {
-    //     await addProduct();
-    // }
-    // );
-    // const { message, quantity } = result.current;
-    // expect(message).toBe("Enregistré dans le panier");
-    // expect(quantity).toEqual(1);
+    await act(async () => {
+        await addProduct();
+    }
+    );
+    const { message, quantity } = result.current;
+    expect(message).toBe("Enregistré dans le panier");
+    expect(quantity).toEqual(1);
 });
 
 
