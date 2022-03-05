@@ -4,32 +4,32 @@ import { setupServer } from "msw/node";
 import useCart from "../../hooks/useCart/useCart";
 
 
-const server = setupServer(
+// const server = setupServer(
 
-    rest.delete(
-        "http://localhost:8000/api/cart",
-        (req, res, ctx) => {
-            return res(
-                ctx.json(
+//     rest.delete(
+//         "http://localhost:8000/api/cart",
+//         (req, res, ctx) => {
+//             return res(
+//                 ctx.json(
 
-                    {
-                        "id": 3,
-                        "name": "Summer Smith",
-                        "price": 67.6,
-                        "image": "https://rickandmortyapi.com/api/character/avatar/3.jpeg",
-                        "quantity": 20,
-                        "rick_and_morty_id": 3
-                    }
+//                     {
+//                         "id": 3,
+//                         "name": "Summer Smith",
+//                         "price": 67.6,
+//                         "image": "https://rickandmortyapi.com/api/character/avatar/3.jpeg",
+//                         "quantity": 20,
+//                         "rick_and_morty_id": 3
+//                     }
 
-                ))
-        })
-);
+//                 ))
+//         })
+// );
 
-beforeAll(() => server.listen());
+// beforeAll(() => server.listen());
 
-afterEach(() => server.resetHandlers());
+// afterEach(() => server.resetHandlers());
 
-afterAll(() => server.close());
+// afterAll(() => server.close());
 
 test("loading", async () => {
     const { result } = renderHook(() => useCart());
